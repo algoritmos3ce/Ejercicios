@@ -1,23 +1,41 @@
 package ObjetosSimples.Biblioteca.Solucion;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Alumno {
-    private final int padrón;
-    private List<Libro> librosPedidos = new ArrayList<Libro>();
+    private String nombre;
+    private String apellido;
+    private String identificacion;
+    private ArrayList<Libro> librosPrestados;
 
-    public Alumno(int padrón) {
-        this.padrón = padrón;
+    public Alumno(String nombre, String apellido, String identificacion) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.identificacion = identificacion;
+        this.librosPrestados = new ArrayList<>();
     }
 
-    public void PedirLibro(Biblioteca Biblioteca, Libro Libro) {
-        Libro libro_pedido = Biblioteca.getLibro(Libro.getCodigo());
-        if (libro_pedido != null) {
-            librosPedidos.add(libro_pedido);
-            System.out.println("El libro " + libro_pedido.getTitulo() + " ha sido pedido");
-        } else {
-            System.out.println("El libro " + Libro.getTitulo() + " no se encuentra en la biblioteca");
-        }
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public String getIdentificacion() {
+        return identificacion;
+    }
+
+    public ArrayList<Libro> getLibrosPrestados() {
+        return librosPrestados;
+    }
+
+    public void prestarLibro(Libro libro) {
+        librosPrestados.add(libro);
+    }
+
+    public void devolverLibro(Libro libro) {
+        librosPrestados.remove(libro);
     }
 }

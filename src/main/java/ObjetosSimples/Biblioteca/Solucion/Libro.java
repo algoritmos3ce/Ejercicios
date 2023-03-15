@@ -1,24 +1,43 @@
 package ObjetosSimples.Biblioteca.Solucion;
 
-public class Libro {
-   private final String titulo;
-   private long codigo;
-   private final String[] autores;
-   private final int FechaPublicacion;
-   private int Cantidad;
+import java.util.*;
 
-   public Libro(String titulo, Long codigo, String[] autores, int FechaPublicacion, int Cantidad) {
+public class Libro {
+   private String ISBN;
+   private String titulo;
+   private Date fechaPublicacion;
+   private String[] autores;
+   private int stock;
+
+   public Libro(String ISBN, String titulo, Date fechaPublicacion, String[] autores, int stock) {
+      this.ISBN = ISBN;
       this.titulo = titulo;
-      this.codigo = codigo;
+      this.fechaPublicacion = fechaPublicacion;
       this.autores = autores;
-      this.FechaPublicacion = FechaPublicacion;
+      this.stock = stock;
    }
 
-   public long getCodigo() {
-      return codigo;
+   public String getISBN() {
+      return ISBN;
    }
 
    public String getTitulo() {
       return titulo;
+   }
+
+   public Date getFechaPublicacion() {
+      return fechaPublicacion;
+   }
+
+   public String[] getAutores() {
+      return autores;
+   }
+
+   public int getStock() {
+      return stock;
+   }
+
+   public void setStock(int stock) {
+      this.stock = stock;
    }
 }

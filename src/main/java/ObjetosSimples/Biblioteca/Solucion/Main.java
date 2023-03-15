@@ -1,25 +1,33 @@
 package ObjetosSimples.Biblioteca.Solucion;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Main {
-    //TODO: Revisar la solucion porque probablemente tenga errores
     public static void main(String[] args) {
-        Alumno alumno = new Alumno(1234);
-        Libro libro = new Libro("El principito", 9783140464079L, new String[] { "Antoine de Saint-Exupéry" }, 1943, 1);
-        Libro libro2 = new Libro("Desing Patterns", 9780201633610L,
-                new String[] { "Erich Gamma", "Richard Helm", "Ralph Johnson", "John Vlissides" }, 1994, 2);
-        Libro libro3 = new Libro("El Nombre del Viento", 9788498380815L,
-                new String[] { "Patrick Rothfuss" }, 2007, 1);
-        Libro libro4 = new Libro("El Juego de Ender", 9788498380822L, new String[] { "Orson Scott Card" }, 1985, 1);
-        Libro libro5 = new Libro("Rayuela", 9789500422246L, new String[] { "Julio Cortázar" }, 1963, 1);
-        Libro[] libros = new Libro[] { libro, libro2, libro3, libro4, libro5 };
-        Biblioteca biblioteca = new Biblioteca(libros);
+        Biblioteca biblioteca = new Biblioteca();
+        // Agregar libros a la biblioteca
+        Libro libro1 = new Libro("1234567890", "El nombre del viento", new Date(), new String[]{"Patrick Rothfuss"}, 5);
+        biblioteca.agregarLibro(libro1);
+        Libro libro2 = new Libro("0987654321", "La música del silencio", new Date(), new String[]{"Patrick Rothfuss"}, 3);
+        biblioteca.agregarLibro(libro2);
 
-        System.out.println("Libros disponibles:");
-        biblioteca.printLibros();
+        // Consultar stock de libros
+        int stock = biblioteca.consultarStockPorTitulo("El nombre del viento");
+        System.out.println("Stock de 'El nombre del viento': " + stock);
 
-        System.out.println("Ingrese el codigo del libro que desea pedir:");
+        //Consultar stock por autor
+        stock = biblioteca.consultarStockPorAutor("Patrick Rothfuss");
+        System.out.println("Stock de libros de Patrick Rothfuss: " +stock);
 
-        alumno.PedirLibro(biblioteca, libro);
+        // Prestar libro
+        Alumno alumno1 = new Alumno("Juan", "Pérez", "123456");
+        biblioteca.prestarLibro(libro1, alumno1);
+
+        // Consultar libros prestados
+        ArrayList<Libro> librosPrestados = biblioteca.consultarLibrosPrestados(alumno1);
+        for (Libro libro : librosPrestados) {
+            System.out.println(libro.getTitulo());
+        }
     }
-
 }
