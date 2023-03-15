@@ -1,40 +1,68 @@
 package ObjetosSimples.Chat.Solucion;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // Crear algunos usuarios
-        Usuario usuario1 = new Usuario("Juan");
-        Usuario usuario2 = new Usuario("Maria");
-        Usuario usuario3 = new Usuario("Pedro");
+        Scanner scanner = new Scanner(System.in);
 
-        // Crear un chat y agregar usuarios
+        // Pedir nombres de usuarios
+        System.out.println("Ingrese el nombre del primer usuario:");
+        String nombre1 = scanner.nextLine();
+
+        System.out.println("Ingrese el nombre del segundo usuario:");
+        String nombre2 = scanner.nextLine();
+
+        // Crear usuarios y chat
+        Usuario usuario1 = new Usuario(nombre1);
+        Usuario usuario2 = new Usuario(nombre2);
+
         Chat chat = new Chat();
         chat.agregarUsuario(usuario1);
         chat.agregarUsuario(usuario2);
-        chat.agregarUsuario(usuario3);
 
-        // Los usuarios envían mensajes entre ellos
-        usuario1.enviarMensaje(usuario2, "Hola Maria!");
-        usuario2.enviarMensaje(usuario1, "Hola Juan, ¿cómo estás?");
-        usuario3.enviarMensaje(usuario1, "Hola Juan, ¿quieres tomar un café?");
-        usuario1.enviarMensaje(usuario3, "Sí, vamos a un café!");
-        usuario2.enviarMensaje(usuario3, "También me gustaría tomar un café.");
-        usuario3.enviarMensaje(usuario2, "Genial, ¿cuándo nos encontramos?");
+        // Comenzar chat
+        System.out.println("Comienza el chat!");
 
-        // Obtener el historial de conversación entre dos usuarios
+        while (true) {
+            System.out.println("Ingrese el nombre del remitente:");
+            String remitente = scanner.nextLine();
+
+            System.out.println("Ingrese el nombre del destinatario:");
+            String destinatario = scanner.nextLine();
+
+            Usuario usuarioRemitente = chat.getUsuarioPorNombre(remitente);
+            Usuario usuarioDestinatario = chat.getUsuarioPorNombre(destinatario);
+
+            if (usuarioRemitente == null || usuarioDestinatario == null) {
+                System.out.println("Usuario no encontrado.");
+                continue;
+            }
+
+            System.out.println("Ingrese el mensaje:");
+            String texto = scanner.nextLine();
+
+            usuarioRemitente.enviarMensaje(usuarioDestinatario, texto);
+
+            System.out.println("Mensaje enviado.");
+
+            System.out.println("¿Desea continuar chateando? (s/n)");
+            String continuar = scanner.nextLine();
+
+            if (continuar.equalsIgnoreCase("n")) {
+                break;
+            }
+        }
+
+        // Mostrar historial de conversación
+        System.out.println("Historial de conversación:");
+
         List<Mensaje> historial = chat.getHistorialConversacion(usuario1, usuario2);
         for (Mensaje mensaje : historial) {
             System.out.println(mensaje.getRemitente().getNombre() + " a " + mensaje.getDestinatario().getNombre() + ": " + mensaje.getTexto());
         }
-        historial = chat.getHistorialConversacion(usuario1, usuario3);
-        for (Mensaje mensaje : historial) {
-            System.out.println(mensaje.getRemitente().getNombre() + " a " + mensaje.getDestinatario().getNombre() + ": " + mensaje.getTexto());
-        }
-        historial = chat.getHistorialConversacion(usuario2, usuario3);
-        for (Mensaje mensaje : historial) {
-            System.out.println(mensaje.getRemitente().getNombre() + " a " + mensaje.getDestinatario().getNombre() + ": " + mensaje.getTexto());
-        }
+
+        scanner.close();
     }
 }

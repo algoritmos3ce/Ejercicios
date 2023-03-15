@@ -1,11 +1,10 @@
 package ObjetosSimples.Chat.Solucion;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 
 public class Chat {
-    private List<Usuario> usuarios;
+    private final List<Usuario> usuarios;
 
     public Chat() {
         this.usuarios = new ArrayList<>();
@@ -15,9 +14,15 @@ public class Chat {
         usuarios.add(usuario);
     }
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
+    public Usuario getUsuarioPorNombre(String nombre) {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getNombre().equals(nombre)) {
+                return usuario;
+            }
+        }
+        return null;
     }
+
 
     public List<Mensaje> getHistorialConversacion(Usuario usuario1, Usuario usuario2) {
         List<Mensaje> historial = new ArrayList<>();
