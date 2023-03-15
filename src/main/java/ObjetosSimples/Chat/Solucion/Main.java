@@ -2,7 +2,6 @@ package ObjetosSimples.Chat.Solucion;
 
 import java.util.List;
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -25,7 +24,8 @@ public class Main {
         // Comenzar chat
         System.out.println("Comienza el chat!");
 
-        while (true) {
+        boolean continuar = true;
+        while (continuar) {
             System.out.println("Ingrese el nombre del remitente:");
             String remitente = scanner.nextLine();
 
@@ -37,22 +37,20 @@ public class Main {
 
             if (usuarioRemitente == null || usuarioDestinatario == null) {
                 System.out.println("Usuario no encontrado.");
-                continue;
             }
 
             System.out.println("Ingrese el mensaje:");
             String texto = scanner.nextLine();
 
+            assert usuarioRemitente != null;
             usuarioRemitente.enviarMensaje(usuarioDestinatario, texto);
 
             System.out.println("Mensaje enviado.");
 
             System.out.println("¿Desea continuar chateando? (s/n)");
-            String continuar = scanner.nextLine();
+            String respuesta = scanner.nextLine();
 
-            if (continuar.equalsIgnoreCase("n")) {
-                break;
-            }
+            continuar = respuesta.equalsIgnoreCase("s");
         }
 
         // Mostrar historial de conversación
