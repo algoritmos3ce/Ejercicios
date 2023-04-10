@@ -1,23 +1,37 @@
-Violación del Principio de Responsabilidad Única (SRP):
+este código viola el principio de diseño SRP (Single Responsibility Principle), ya que la clase Usuario tiene la responsabilidad de definir dos tipos de trabajadores (Engineer y Robot) que tienen diferentes responsabilidades. La clase Engineer tiene la responsabilidad de realizar trabajos de ingeniería, comer y dormir, mientras que la clase Robot solo tiene la responsabilidad de trabajar.
+
+Por lo tanto, si seguimos el principio de SRP, la solución sería separar la interfaz Worker en dos interfaces diferentes, HumanWorker y Worker, para que cada una contenga solo los métodos relevantes a su tipo de trabajador. Luego, la clase Engineer implementaría HumanWorker, mientras que la clase Robot implementaría RobotWorker. 
 ```java
 public class Usuario {
-    private String nombre;
-    private String correo;
-    private String telefono;
-    
-    public void guardarUsuario() {
-    // Lógica para guardar usuario en la base de datos
+    interface Worker {
+        public void work();
     }
-    
-    public void enviarCorreoDeBienvenida() {
-    // Lógica para enviar correo de bienvenida al usuario
+
+    interface HumanWorker extends Worker {
+        public void eat();
+        public void sleep();
     }
-    
-    public void actualizarTelefono(String nuevoTelefono) {
-    // Lógica para actualizar el teléfono del usuario en la base de datos
+
+    class Engineer implements HumanWorker {
+        public void work() {
+            // implementación del trabajo de ingeniería
+        }
+
+        public void eat() {
+            // implementación de comer
+        }
+
+        public void sleep() {
+            // implementación de dormir
+        }
+    }
+
+    class Robot implements Worker {
+        public void work() {
+            // implementación del trabajo de robot
+        }
     }
 }
-```
-En este ejemplo, la clase Usuario tiene varias responsabilidades: guardar el usuario en la base de datos, enviar correos de bienvenida y actualizar el teléfono del usuario. Esto viola el Principio de Responsabilidad Única (SRP).
 
-Solución: Separar las responsabilidades de la clase Usuario en diferentes clases. Por ejemplo, una clase UsuarioData que se encargue de guardar el usuario en la base de datos, una clase CorreoService que se encargue de enviar correos de bienvenida y una clase UsuarioService  que se encargue de actualizar el teléfono del usuario.
+
+```
