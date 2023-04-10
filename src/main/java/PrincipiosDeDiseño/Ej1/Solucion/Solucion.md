@@ -1,6 +1,3 @@
-# Solucion
-¡Hola! A continuación, te presentaré cinco ejemplos de código en Java que violan los principios SOLID y te daré una solución para cada uno de ellos:
-
 Violación del Principio de Responsabilidad Única (SRP):
 ```java
 public class Usuario {
