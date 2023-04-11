@@ -1,5 +1,5 @@
 # Consigna
-"Dado este código
+Dado este código
 ``` java
 interface Worker {
     public void work();
@@ -31,4 +31,4 @@ class Robot implements Worker {
     }
 }
 ```
-identificar qué principios se violan y refactorizar".
+identificar qué principios se violan y refactorizar.
