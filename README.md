@@ -19,7 +19,7 @@
 1. [Cartelera 2](src/main/java/HerenciaYPolimorfis/Cartelera2)
 1. ☣️ [Ajedrez](src/main/java/HerenciaYPolimorfis/Ajedrez)
 
-## TDD
+## 3. TDD
 
 1. [ROT13](src/main/java/TDD/ROT13)
 1. [Notación Romana](src/main/java/TDD/NotacionRomana)
@@ -28,7 +28,7 @@
 1. [Calculadora](src/main/java/TDD/Calculadora)
 1. [Contraseña](src/main/java/TDD/Contrasenia)
 
-## Principios de diseño
+## 4. Principios de diseño
 
 1. [Producto](src/main/java/PrincipiosDeDiseño/Producto)
 1. [RectanguloYCuadrado](src/main/java/PrincipiosDeDiseño/RectanguloYCuadrado)
