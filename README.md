@@ -2,7 +2,7 @@
 
 [Algoritmos III Corsi-Essaya](https://algo3.super.site/)
 
-## 1. ObjetosSimples
+## 1. Objetos simples
 
 1. [FIUBA](src/main/java/ObjetosSimples/FIUBA)
 1. [Chat](src/main/java/ObjetosSimples/Chat)
@@ -11,7 +11,7 @@
 1. [Caja de ahorro](src/main/java/ObjetosSimples/Cuenta)
 1. [Fecha](src/main/java/ObjetosSimples/Fecha)
 
-## 2. Herencia y Polimorfismo
+## 2. Herencia y polimorfismo
 
 1. [Figuras](src/main/java/HerenciaYPolimorfis/AreaTotal)
 1. [ListaDuplicante](src/main/java/HerenciaYPolimorfis/ListaDuplicante)
