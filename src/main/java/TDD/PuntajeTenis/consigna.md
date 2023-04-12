@@ -1,5 +1,4 @@
-Implementar usando TDD:
-Un objeto que permita llevar el puntaje de un partido de tenis, cumpliendo la siguiente interfaz:
+Implementar usando TDD un objeto que permita llevar el puntaje de un partido de [tenis](https://en.wikipedia.org/wiki/Tennis_scoring_system), cumpliendo la siguiente interfaz:
 
 ```java
 interface PuntajeTenis {

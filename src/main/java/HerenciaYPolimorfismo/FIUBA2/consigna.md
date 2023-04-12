@@ -1,5 +1,7 @@
 # FIUBA ENHANCED
+
 Diseñar el modelo de objetos e implementar un sistema que funcione como un registro de todos los alumnos y docentes de la FIUBA.
+
 Cualquier integrante de FIUBA tiene un nombre y DNI. No puede haber dos personas con el mismo DNI. Un integrante puede ser alumno o docente.
 
 Los alumnos tienen número de padrón o legajo. No puede haber dos alumnos con el mismo número de padrón.
