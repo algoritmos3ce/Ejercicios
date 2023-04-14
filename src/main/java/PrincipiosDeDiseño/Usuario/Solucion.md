@@ -1,4 +1,4 @@
-El código presentado viola el principio de responsabilidad única (SRP) ya que la clase `Usuario` tiene responsabilidades que van más allá de la gestión de los datos de usuario.
+El código presentado viola el principio de responsabilidad única (SRP) ya que la clase `Usuario` tiene responsabilidades que van más allá de la gestión de los datos de usuario. También se viola el principio SoC (Separation of Concerns).
 
 Una posible solución sería separar las responsabilidades en diferentes clases,
 donde cada una tiene una responsabilidad clara:
