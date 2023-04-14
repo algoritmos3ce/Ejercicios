@@ -3,6 +3,9 @@ de una implementación concreta de la clase `BaseDeDatos` que se crea en el
 constructor. Si quisiéramos cambiar la forma en que se guardan los datos
 tendríamos que modificar la clase `Usuario`.
 
+También viola el EDP (Explicit Dependencies Principle) ya que `Usuario` depende
+implícitamente de una clase concreta `BaseDeDatos`.
+
 Una posible solución es que el `Usuario` reciba una instancia de una
 interfaz `BaseDeDatos`. De esta manera se pueden implementar diferentes
 estrategias para guardar en la base de datos sin modificar la clase `Usuario`.

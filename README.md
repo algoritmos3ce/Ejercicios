@@ -30,8 +30,14 @@
 
 ## 4. Principios de diseño
 
+1. [Auto](src/main/java/PrincipiosDeDiseño/Auto#readme)
+1. [Carrito de compras](src/main/java/PrincipiosDeDiseño/Carrito#readme)
+1. [Cubo](src/main/java/PrincipiosDeDiseño/Cubo#readme)
+1. [Cuenta bancaria](src/main/java/PrincipiosDeDiseño/CuentaBancaria#readme)
+1. [Empleado](src/main/java/PrincipiosDeDiseño/Empleado#readme)
 1. [Producto](src/main/java/PrincipiosDeDiseño/Producto#readme)
 1. [Rectangulo y cuadrado](src/main/java/PrincipiosDeDiseño/RectanguloYCuadrado#readme)
+1. [Suma](src/main/java/PrincipiosDeDiseño/Suma#readme)
 1. [Usuario](src/main/java/PrincipiosDeDiseño/Usuario#readme)
 1. [Usuario 2](src/main/java/PrincipiosDeDiseño/Usuario2#readme)
 1. [Vehiculo](src/main/java/PrincipiosDeDiseño/Vehiculo#readme)
