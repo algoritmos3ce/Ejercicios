@@ -41,3 +41,10 @@
 1. [Usuario](src/main/java/PrincipiosDeDiseño/Usuario#readme)
 1. [Usuario 2](src/main/java/PrincipiosDeDiseño/Usuario2#readme)
 1. [Vehiculo](src/main/java/PrincipiosDeDiseño/Vehiculo#readme)
+
+## 5. Patrones de diseño
+1. [Ordenamiento](src/main/java/PatronesDeDiseño/Ordenamiento#readme)
+2. [Cafe](src/main/java/PatronesDeDiseño/Cafe#readme)
+3. [Sensores](src/main/java/PatronesDeDiseño/Sensores#readme)
+4. [Figuras](src/main/java/PatronesDeDiseño/Figuras#readme)
+5. [Maquinas](src/main/java/PatronesDeDiseño/Maquinas#readme)
