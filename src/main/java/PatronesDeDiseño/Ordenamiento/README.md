@@ -1,4 +1,4 @@
-Dado el siguiente codigo, identificar que patrones se violan y proponer un diseño alternativo.
+Dado el siguiente codigo, identificar un problema de diseño y proponer una solución aplicando algún patrón de diseño.
 
 ```java
 
