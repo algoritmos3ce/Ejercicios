@@ -1,31 +1,49 @@
-Dado el siguiente codigo, identificar un problema de diseño y proponer una solución aplicando algún patrón de diseño.
+Dado el siguiente código, identificar un problema de diseño y proponer una solución aplicando algún patrón de diseño.
+
+Este código es en el contexto de un videojuego de futbol:
 
 ```java
+public class Jugador {
+    public void jugar();
+    public void dibujar();
+}
 
-public class Ordenamiento {
+public class ArqueroHumano() implements Jugador {
+    public void jugar() { ... }
+    public void dibujar() { ... }
+}
 
-    public void ordenar(int[] arr, String metodo) {
-        if (metodo.equals("burbujeo")) {
-            burbujeo(arr);
-        } else if (metodo.equals("insercion")) {
-            insercion(arr);
-        } else if (metodo.equals("seleccion")) {
-            seleccion(arr);
-        } else {
-            System.out.println("Método no válido.");
-        }
-    }
+public class ArqueroIA() implements Jugador {
+    public void jugar() { ... }
+    public void dibujar() { ... }
+}
+public class DefensorHumano() implements Jugador {
+    public void jugar() { ... }
+    public void dibujar() { ... }
+}
 
-    private void burbujeo(int[] arr) {
-        // Implementación del algoritmo de burbuja
-    }
+public class DefensorIA() implements Jugador {
+    public void jugar() { ... }
+    public void dibujar() { ... }
+}
 
-    private void insercion(int[] arr) {
-        // Implementación del algoritmo de inserción
-    }
+public class MediocampistaHumano() implements Jugador {
+    public void jugar() { ... }
+    public void dibujar() { ... }
+}
 
-    private void seleccion(int[] arr) {
-        // Implementación del algoritmo de selección
-    }
+public class MediocampistaIA() implements Jugador {
+    public void jugar() { ... }
+    public void dibujar() { ... }
+}
+
+public class DelanteroHumano() implements Jugador {
+    public void jugar() { ... }
+    public void dibujar() { ... }
+}
+
+public class DelanteroIA() implements Jugador {
+    public void jugar() { ... }
+    public void dibujar() { ... }
 }
 ```

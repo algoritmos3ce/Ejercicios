@@ -1,19 +1,18 @@
-En este ejemplo, la clase Cafe viola el patrón Decorator porque añade la funcionalidad adicional directamente en el objeto existente en lugar de encapsular la funcionalidad adicional en una clase separada.
+En este ejemplo, la clase Cafe viola el principio abierto-cerrado, porque añade la funcionalidad adicional (agregarle "extras" a un café básico) directamente en el objeto existente en lugar de encapsular la funcionalidad adicional en clases separadas.
 
-Solución para la violación del patrón Decorator:
-Para corregir esta violación, se pueden crear clases separadas para cada funcionalidad adicional que se desea agregar al objeto existente y utilizar el patrón Decorator para combinar estas funcionalidades.
-    
+Para corregir esto, se puede crear clases separadas para cada funcionalidad adicional que se desea agregar al objeto existente y utilizar el patrón Decorator para combinar estas funcionalidades.
+
 ```java
-public interface CafeDecorador {
+public interface Cafe {
     String getDescripcion();
     double getPrecio();
 }
 
-public class Cafe implements CafeDecorador {
+public class CafeBasico implements Cafe {
     private String descripcion;
     private double precio;
 
-    public Cafe(String descripcion, double precio) {
+    public CafeBasico(String descripcion, double precio) {
         this.descripcion = descripcion;
         this.precio = precio;
     }
@@ -27,10 +26,10 @@ public class Cafe implements CafeDecorador {
     }
 }
 
-public class CafeConLeche implements CafeDecorador {
-    private CafeDecorador cafeDecorado;
+public class CafeConLeche implements Cafe {
+    private Cafe cafeDecorado;
 
-    public CafeConLeche(CafeDecorador cafeDecorado) {
+    public CafeConLeche(Cafe cafeDecorado) {
         this.cafeDecorado = cafeDecorado;
     }
 
@@ -43,10 +42,10 @@ public class CafeConLeche implements CafeDecorador {
     }
 }
 
-public class CafeConAzucar implements CafeDecorador {
-    private CafeDecorador cafeDecorado;
+public class CafeConAzucar implements Cafe {
+    private Cafe cafeDecorado;
 
-    public CafeConAzucar(CafeDecorador cafeDecorado) {
+    public CafeConAzucar(Cafe cafeDecorado) {
         this.cafeDecorado = cafeDecorado;
     }
 
@@ -59,4 +58,19 @@ public class CafeConAzucar implements CafeDecorador {
     }
 }
 
+public class CafeConMiel implements Cafe {
+    private Cafe cafeDecorado;
+
+    public CafeConAzucar(Cafe cafeDecorado) {
+        this.cafeDecorado = cafeDecorado;
+    }
+
+    public String getDescripcion() {
+        return cafeDecorado.getDescripcion() + ", con miel";
+    }
+
+    public double getPrecio() {
+        return cafeDecorado.getPrecio() + 0.75;
+    }
+}
 ```

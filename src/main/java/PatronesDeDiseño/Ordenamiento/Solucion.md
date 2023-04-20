@@ -1,40 +1,46 @@
-En este ejemplo, el método ordenar de la clase Ordenamiento viola el patrón Strategy porque no encapsula adecuadamente cada algoritmo en una clase separada, lo que hace difícil intercambiar los algoritmos sin cambiar el código.
+En este ejemplo hay una explosión de clases, ya que hay una clase por cada combinación de posición en el campo (arquero/defensor/mediocampo/delantero) y controlador (humano / IA).
 
-Solución para la violación del patrón Strategy:
-Para corregir esta violación, se pueden crear clases separadas para cada algoritmo de ordenamiento e implementar una interfaz común que represente el comportamiento común de los algoritmos de ordenamiento.
+Para corregir esto, se puede aplicar el patrón Strategy:
 
 ```java
-public interface AlgoritmoOrdenamiento {
-    void ordenar(int[] arreglo);
-}
+public class Jugador {
+    private Posicion posicion;
+    private Controlador controlador;
 
-public class Burbuja implements AlgoritmoOrdenamiento {
-    public void ordenar(int[] arreglo) {
-        // Implementación del algoritmo de burbuja
+    public Jugador(Posicion p, Controlador c) {
+        posicion = p;
+        controlador = c;
+    }
+
+    public void jugar() {
+        controlador.jugar(posicion);
+    }
+
+    public void dibujar() {
+        posicion.dibujar();
     }
 }
 
-public class QuickSort implements AlgoritmoOrdenamiento {
-    public void ordenar(int[] arreglo) {
-        // Implementación del algoritmo quickSort
-    }
+public interface Posicion {
+    void dibujar();
 }
 
-public class MergeSort implements AlgoritmoOrdenamiento {
-    public void ordenar(int[] arreglo) {
-        // Implementación del algoritmo mergeSort
-    }
+public interface Controlador {
+    void jugar(Posicion p);
 }
 
-public class Ordenamiento {
-    private AlgoritmoOrdenamiento algoritmo;
+public class ControladorHumano implements Controlador { ... }
+public class ControladorIA implements Controlador { ... }
 
-    public Ordenamiento(AlgoritmoOrdenamiento algoritmo) {
-        this.algoritmo = algoritmo;
-    }
+public class PosicionArquero implements Posicion { ... }
+public class PosicionDefensor implements Posicion { ... }
+public class PosicionMediocampo implements Posicion { ... }
+public class PosicionDelantero implements Posicion { ... }
 
-    public void ordenar(int[] arreglo) {
-        algoritmo.ordenar(arreglo);
+class Main {
+    public static void main(String[] args) {
+        var mediocampistaHumano = new Jugador(new PosicionMediocampo(), new ControladorHumano());
+        var arqueroIA = new Jugador(new PosicionArquero(), new ControladorIA());
     }
 }
 ```

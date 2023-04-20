@@ -1,64 +1,57 @@
-Dado el siguiente codigo, identificar un problema de diseño y proponer una solución aplicando algún patrón de diseño.
+Dado el siguiente código, identificar un problema de diseño y proponer una solución aplicando algún patrón de diseño.
+
 ```java
-public class Maquina {
-    public final void imprimir() {
-        leer();
+public interface Impresora {
+    void imprimir() {
+}
+
+public class ImpresoraLaser implements Impresora {
+    public void imprimir() {
+        if (tonerVacio()) {
+            System.out.println("Sin toner!");
+            return;
+        }
+        leerDocumento();
         calentar();
         imprimir();
     }
 
-    private void leer() {
-        System.out.println("Leyendo documento...");
-    }
-
-    private void calentar() {
-        System.out.println("Calentando máquina...");
-    }
-
-    private void imprimir() {
-        System.out.println("Imprimiendo documento...");
-    }
+    private bool tonerVacio() { ... }
+    private void leerDocumento() { ... }
+    private void calentar() { ... }
+    private void imprimir() { ... }
 }
 
-public class MaquinaLaser {
-    public final void imprimir() {
-        leer();
+public class ImpresoraInyeccion implements Impresora {
+    public void imprimir() {
+        if (cartuchoVacio()) {
+            System.out.println("Sin tinta!");
+            return;
+        }
+        leerDocumento();
         calentar();
-        imprimir();
+        imprimir(d);
     }
-    
-    
-    private void leer() {
-        System.out.println("Leyendo documento...");
-    }
-    
-    private void calentar() {
-        System.out.println("Calentando láser...");
-    }
-    
-    private void imprimir() {
-        System.out.println("Imprimiendo en laser...");
-    }
+
+    private bool cartuchoVacio() { ... }
+    private void leerDocumento() { ... }
+    private void calentar() { ... }
+    private void imprimir() { ... }
 }
 
-public class MaquinaLectoraEn3D {
-    public final void imprimir() {
-        leer();
+public class Impresora3D implements Impresora {
+    public void imprimir() {
+        if (filamentoVacio()) {
+            System.out.println("Sin filamento!");
+            return;
+        }
+        leerDocumento();
         calentar();
-        imprimir();
+        imprimir(d);
     }
-    
-    
-    private void leer() {
-        System.out.println("Leyendo en 3D...");
-    }
-    
-    private void calentar() {
-        System.out.println("Calentando lector...");
-    }
-    
-    private void imprimir() {
-        System.out.println("Imprimiendo en 3D...");
-    }
+
+    private bool filamentoVacio() { ... }
+    private void leerDocumento() { ... }
+    private void calentar() { ... }
+    private void imprimir() { ... }
 }
-```

@@ -1,50 +1,60 @@
-En este caso, se podria utilizar el template method para crear una clase abstracta que estandarice el proceso de leer-calentar-imprimir. Ninguna implemetnacion de esa clase abstracta podra sobreescribir ese paso a paso, pero si podra sobreescribir los pasos dentro de ese proceso.
+En este ejemplo se viola el principio DRY ya que los tres tipos de
+impresora se comportan de manera muy similar.
+
+En este caso, se podria utilizar el patrón Template Method para estandarizar el algoritmo de impresión en una clase abstracta.
+Ninguna implemetnacion de esa clase abstracta podrá modificar la secuencia de pasos del algoritmo `imprimir()`, pero sí podrá sobreescribir los pasos dentro de ese proceso.
 
 ```java
-
-public abstract class Maquina {
+public abstract class Impresora {
     public final void imprimir() {
-        leer();
+        String error = chequeoInicial();
+        if (error != null) {
+            System.out.println(error);
+            return;
+        }
+        leerDocumento();
         calentar();
         imprimir();
     }
 
-    protected void leer() {
-        System.out.println("Leyendo documento...");
-    }
-    
-    protected void calentar() {
-        System.out.println("Calentando...");
-    }
-    
-    protected void imprimir() {
-        System.out.println("Imprimiendo...");
-    }
+    protected abstract String chequeoInicial();
+    protected abstract void leerDocumento();
+    protected abstract void calentar();
+    protected abstract void imprimir();
 }
 
-public class MaquinaLaser extends Maquina {
-
+public class ImpresoraLaser extends Impresora {
     @Override
-    protected void calentar() {
-        System.out.println("Calentando láser...");
+    protected abstract String chequeoInicial() {
+        return tonerVacio() ? "sin toner!" : null;
     }
 
-    @Override
-    protected void imprimir() {
-        System.out.println("Imprimiendo en laser...");
-    }
+    private bool tonerVacio() { ... }
+    @Override protected void leerDocumento() { ... }
+    @Override protected void calentar() { ... }
+    @Override protected void imprimir() { ... }
 }
 
-public class MaquinaLectoraEn3D extends Maquina {
-
+public class ImpresoraInyeccion extends Impresora {
     @Override
-    protected void leer() {
-        System.out.println("Leyendo en 3D...");
+    protected abstract String chequeoInicial() {
+        return cartuchoVacio() ? "sin tinta!" : null;
     }
 
-    @Override
-    protected void imprimir() {
-        System.out.println("Imprimiendo en 3D...");
-    }
+    private bool cartuchoVacio() { ... }
+    @Override protected void leerDocumento() { ... }
+    @Override protected void calentar() { ... }
+    @Override protected void imprimir() { ... }
 }
-```
+
+public class Impresora3D extends Impresora {
+    @Override
+    protected abstract String chequeoInicial() {
+        return filamentoVacio() ? "sin filamento!" : null;
+    }
+
+    private bool filamentoVacio() { ... }
+    @Override protected void leerDocumento() { ... }
+    @Override protected void calentar() { ... }
+    @Override protected void imprimir() { ... }
+}

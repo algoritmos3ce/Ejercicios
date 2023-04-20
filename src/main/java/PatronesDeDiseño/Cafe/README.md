@@ -1,4 +1,4 @@
-Dado el siguiente codigo, identificar un problema de diseño y proponer una solución aplicando algún patrón de diseño.
+Dado el siguiente código, identificar un problema de diseño y proponer una solución aplicando algún patrón de diseño.
 
 ```java
 
@@ -18,7 +18,6 @@ public class Cafe {
     public double getPrecio() {
         return precio;
     }
-    
 
     public void agregarLeche() {
         descripcion += ", con leche";
@@ -28,6 +27,11 @@ public class Cafe {
     public void agregarAzucar() {
         descripcion += ", con azucar";
         precio += 0.25;
+    }
+
+    public void agregarMiel() {
+        descripcion += ", con miel";
+        precio += 0.75;
     }
 }
 ```

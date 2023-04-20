@@ -1,31 +1,21 @@
 Dado el siguiente codigo, identificar un problema de diseño y proponer una solución aplicando algún patrón de diseño.
 
 ```java
-
 abstract class Forma {
-    // ...
+    double calcularArea();
+    void dibujar(Pantalla p);
+    bool guardarEnArchivo(String ruta);
 }
 
 class Circulo extends Forma {
-    // ...
-
-    public double calcularArea() {
-        // Implementación del cálculo del área para un círculo
-    }
+    public double calcularArea() { ... }
+    public void dibujar(Pantalla p) { ... }
+    public bool guardarEnArchivo(String ruta) { ... }
 }
 
 class Rectangulo extends Forma {
-    // ...
-
-    public double calcularArea() {
-        // Implementación del cálculo del área para un rectángulo
-    }
-}
-
-class Cliente {
-    public void main() {
-        Forma forma = new Circulo();
-        double area = forma.calcularArea(); // Violación del patrón Visitor
-    }
+    public double calcularArea() { ... }
+    public void dibujar(Pantalla p) { ... }
+    public bool guardarEnArchivo(String ruta) { ... }
 }
 ```
