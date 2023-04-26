@@ -32,21 +32,20 @@ public class Rectangulo {
 }
 
 public class Cuadrado extends Rectangulo {
-    private int lado;
-
     public Cuadrado(int lado) {
         super(lado, lado);
-        this.lado = lado;
     }
 
-    public int getLado() {
-        return lado;
+    @Override
+    public void setAncho(int ancho) {
+        super.setAncho(ancho);
+        super.setAlto(ancho);
     }
 
-    public void setLado(int lado) {
-        this.lado = lado;
-        setAncho(lado);
-        setAlto(lado);
+    @Override
+    public void setAlto(int alto) {
+        super.setAncho(alto);
+        super.setAlto(alto);
     }
 }
 ```
