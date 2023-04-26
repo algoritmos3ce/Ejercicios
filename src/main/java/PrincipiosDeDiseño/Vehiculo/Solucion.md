@@ -1,34 +1,38 @@
-El principio violado en el ejemplo es el principio Tell Don't Ask (TDA), ya que la clase `CajeroAutomatico` está preguntando por el saldo de la cuenta (`cuenta.obtenerSaldo()`) para luego decidir si es posible realizar una retirada de dinero. Esto viola el principio TDA, ya que el objeto `CajeroAutomatico` debería "decirle" a la cuenta que retire la cantidad especificada en lugar de preguntarle por su saldo y luego decidir si retirar.
+La interfaz `Vehiculo` viola el principio ISP (Interface Segregation), ya que
+expone métodos que no son relevantes para todas las imlementaciones.
 
-Para solucionar esto, podemos mover la lógica de verificación de saldo a la clase `CuentaBancaria`:
+Una solución posible es separar la interfaz:
 
 ```java
-public class CuentaBancaria {
-    private int saldo;
-
-    public void depositar(int cantidad) {
-        saldo += cantidad;
-    }
-
-    public boolean retirar(int cantidad) {
-        if (saldo >= cantidad) {
-            saldo -= cantidad;
-            return true;
-        }
-        return false;
-    }
+interface Vehiculo {
+    void acelerar();
+    void frenar();
 }
 
-public class CajeroAutomatico {
-    private CuentaBancaria cuenta;
+interface VehiculoConCambios {
+    void cambiarMarcha();
+}
 
-    public void retirarDinero(int cantidad) {
-        boolean ok = cuenta.retirar(cantidad);
-        if (ok) {
-            System.out.println(cantidad + " retirados exitosamente.");
-        } else {
-            System.out.println("Fondos insuficientes.");
-        }
-    }
+interface VehiculoConFaros {
+    void encenderFaros();
+    void apagarFaros();
+}
+
+interface VehiculoMotorizado {
+    void arrancarMotor();
+    void pararMotor();
+}
+
+interface VehiculoConRadio {
+    void encenderRadio();
+    void apagarRadio();
+}
+
+class Coche implements Vehiculo, VehiculoConCambios, VehiculoConFaros, VehiculoMotorizado, VehiculoConRadio {
+    // ...
+}
+
+class Bicicleta implements Vehiculo, VehiculoConCambios, VehiculoConFaros {
+    // ...
 }
 ```
