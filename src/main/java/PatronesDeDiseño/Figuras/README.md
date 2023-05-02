@@ -4,18 +4,18 @@ Dado el siguiente codigo, identificar un problema de diseño y proponer una solu
 abstract class Forma {
     double calcularArea();
     void dibujar(Pantalla p);
-    bool guardarEnArchivo(String ruta);
+    boolean guardarEnArchivo(String ruta);
 }
 
 class Circulo extends Forma {
     public double calcularArea() { ... }
     public void dibujar(Pantalla p) { ... }
-    public bool guardarEnArchivo(String ruta) { ... }
+    public boolean guardarEnArchivo(String ruta) { ... }
 }
 
 class Rectangulo extends Forma {
     public double calcularArea() { ... }
     public void dibujar(Pantalla p) { ... }
-    public bool guardarEnArchivo(String ruta) { ... }
+    public boolean guardarEnArchivo(String ruta) { ... }
 }
 ```
