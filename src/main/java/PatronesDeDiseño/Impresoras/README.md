@@ -2,7 +2,7 @@ Dado el siguiente código, identificar un problema de diseño y proponer una sol
 
 ```java
 public interface Impresora {
-    void imprimir() {
+    void imprimir();
 }
 
 public class ImpresoraLaser implements Impresora {
@@ -16,7 +16,7 @@ public class ImpresoraLaser implements Impresora {
         imprimir();
     }
 
-    private bool tonerVacio() { ... }
+    private boolean tonerVacio() { ... }
     private void leerDocumento() { ... }
     private void calentar() { ... }
     private void imprimir() { ... }
@@ -33,7 +33,7 @@ public class ImpresoraInyeccion implements Impresora {
         imprimir(d);
     }
 
-    private bool cartuchoVacio() { ... }
+    private boolean cartuchoVacio() { ... }
     private void leerDocumento() { ... }
     private void calentar() { ... }
     private void imprimir() { ... }
@@ -50,7 +50,7 @@ public class Impresora3D implements Impresora {
         imprimir(d);
     }
 
-    private bool filamentoVacio() { ... }
+    private boolean filamentoVacio() { ... }
     private void leerDocumento() { ... }
     private void calentar() { ... }
     private void imprimir() { ... }
