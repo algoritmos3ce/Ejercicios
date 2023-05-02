@@ -3,9 +3,9 @@ Dado el siguiente código, identificar un problema de diseño y proponer una sol
 Este código es en el contexto de un videojuego de futbol:
 
 ```java
-public class Jugador {
-    public void jugar();
-    public void dibujar();
+public interface Jugador {
+    void jugar();
+    void dibujar();
 }
 
 public class ArqueroHumano() implements Jugador {
