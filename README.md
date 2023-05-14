@@ -49,6 +49,12 @@
 4. [Figuras](src/main/java/PatronesDeDiseño/Figuras#readme)
 5. [Impresoras](src/main/java/PatronesDeDiseño/Impresoras#readme)
 
-## 6. Patrones de diseño
+## 6. Excepciones
 1. [Salida](src/main/java/Excepciones/Salida#readme)
 1. [Throws](src/main/java/Excepciones/Throws#readme)
+
+## 7. Persistencia
+1. [Persistencia](src/main/java/Persistencia#readme)
+
+## 8. Interfaces gráficas
+1. [Interfaces gráficas](src/main/java/InterfacesGraficas#readme)
