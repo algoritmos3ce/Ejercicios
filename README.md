@@ -58,3 +58,7 @@
 
 ## 8. Interfaces gráficas
 1. [Interfaces gráficas](src/main/java/InterfacesGraficas#readme)
+
+## 9. Programación funcional
+1. [Refactorizar](src/main/java/Funcional/Refactorizar#readme)
+1. [Impuras](src/main/java/Funcional/Impuras#readme)
