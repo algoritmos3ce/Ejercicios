@@ -11,7 +11,7 @@ public class Materia {
 		this.creditos = creditos;
 	}
 
-	public void printMaterial() {
+	public void printMateria() {
 		System.out.println("Codigo: " + codigo);
 		System.out.println("Nombre: " + nombre);
 		System.out.println("Creditos: " + creditos);

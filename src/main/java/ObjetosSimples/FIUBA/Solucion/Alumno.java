@@ -32,7 +32,6 @@ public class Alumno {
 
 	public String getEstadoCarrera(Carrera info) {
 		int creditos = 0;
-		System.out.println("Su padrón es: " + padron);
 		for (int i = 0; i < materiasAprobadas.size(); i++) {
 			creditos += materiasAprobadas.get(i).getCreditos();
 		}

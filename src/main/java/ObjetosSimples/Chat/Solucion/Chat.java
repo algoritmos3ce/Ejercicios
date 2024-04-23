@@ -1,7 +1,7 @@
 package ObjetosSimples.Chat.Solucion;
+
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class Chat {
     private final List<Usuario> usuarios;
