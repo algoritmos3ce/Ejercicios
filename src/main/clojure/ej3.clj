@@ -1,4 +1,4 @@
-(ns ejercicios.ej3)
+(ns main.clojure.ej3)
 
 ;; 0 -> 1
 ;; 1 -> -1

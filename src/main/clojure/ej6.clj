@@ -1,4 +1,4 @@
-(ns ejercicios.ej6)
+(ns main.clojure.ej6)
 
 (defn slice [s n]
   (for [i (range (+ 1 (- (count s) n)))]

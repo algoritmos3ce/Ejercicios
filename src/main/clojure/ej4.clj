@@ -1,4 +1,4 @@
-(ns ejercicios.ej4)
+(ns main.clojure.ej4)
 
 (defn nth-fibo [n]
   (case n

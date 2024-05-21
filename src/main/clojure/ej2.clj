@@ -1,4 +1,4 @@
-(ns ejercicios.ej2)
+(ns main.clojure.ej2)
 
 (defn palindrome? [s]
   (case (count s)

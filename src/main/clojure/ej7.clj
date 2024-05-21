@@ -1,4 +1,4 @@
-(ns ejercicios.ej7 
+(ns main.clojure.ej7 
   (:require
    [clojure.string :refer [lower-case includes?]]))
 

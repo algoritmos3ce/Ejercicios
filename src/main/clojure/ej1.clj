@@ -1,4 +1,4 @@
-(ns ejercicios.ej1
+(ns main.clojure.ej1
   (:gen-class))
 
 (defn segundos [dias horas minutos segundos]

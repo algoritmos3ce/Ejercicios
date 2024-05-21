@@ -1,4 +1,4 @@
-(ns ejercicios.ej5)
+(ns main.clojure.ej5)
 
 (defn qsort [s]
   (if (empty? s)

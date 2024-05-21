@@ -1,4 +1,4 @@
-(ns ejercicios.ej8)
+(ns main.clojure.ej8)
 
 (defn profundidad [s]
   (if (seq? s)
