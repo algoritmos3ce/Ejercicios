@@ -1,8 +1,5 @@
-En el ejemplo se viola el Principio de Mínimo Compromiso (POLC), ya que el
-método `getNombreCompleto()` no es parte de la interfaz mínima necesaria
-para operar con un `Empleado`, ya que los métodos `getNombre()`
-`getApellido()` proporcionan toda la información necesaria para formar el
-nombre completo.
+En el ejemplo se viola el Principio de Responsabilidad Única (SRP), ya que el
+objeto tiene dos responsabilidades: *almacenar* la información de un empleado, y
+*mostrarla* en la consola.
 
-Una solución es simplemente eliminar el método `getNombreCompleto()` y mover
-esa lógica a otra clase.
+Una solución es simplemente mover el método `mostrarInfo()` a otra clase.
